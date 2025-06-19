@@ -64,6 +64,11 @@ operatorBtnList.forEach((operatorBtn) => {
       secondOperand = Number(displayResult.textContent);
     }
 
+    if (operator && firstOperand && secondOperand) {
+      firstOperand = operate(operator, firstOperand, secondOperand);
+
+      secondOperand = "";
+    }
     operator = e.target.textContent;
     displayResult.textContent = "";
   });
