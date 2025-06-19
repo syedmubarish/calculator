@@ -8,6 +8,7 @@ const clearBtn = document.querySelector(".clear-btn")
 let firstOperand = "",
   secondOperand = "",
   operator = null;
+  isEvaluatedNow = false
 
 let displayContent;
 
@@ -56,6 +57,10 @@ function operate(operator, firstOperand, secondOperand) {
 
 numberBtnList.forEach((numberBtn) => {
   numberBtn.addEventListener("click", (e) => {
+    if(isEvaluatedNow){
+        displayResult.textContent = 0
+        isEvaluatedNow = false
+    }
     if (displayResult.textContent == "0") {
       displayResult.textContent = e.target.textContent;
     } else {
@@ -88,10 +93,13 @@ equalBtn.addEventListener("click", () => {
     secondOperand = Number(displayResult.textContent);
   }
   displayResult.textContent = operate(operator, firstOperand, secondOperand);
+  clearEverything()
+  isEvaluatedNow =true
 });
 
 
 clearBtn.addEventListener("click",()=>{
     displayResult.textContent = 0
     clearEverything()
+    isEvaluatedNow=false
 })
