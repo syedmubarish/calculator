@@ -3,12 +3,19 @@ const displayResult = document.querySelector(".display-result");
 const numberBtnList = document.querySelectorAll(".number");
 const operatorBtnList = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal-btn");
+const clearBtn = document.querySelector(".clear-btn")
 
 let firstOperand = "",
   secondOperand = "",
   operator = null;
 
 let displayContent;
+
+function clearEverything() {
+  firstOperand = "";
+  secondOperand = "";
+  operator = null;
+}
 
 function add(num1, num2) {
   return num1 + num2;
@@ -43,7 +50,7 @@ function operate(operator, firstOperand, secondOperand) {
       ans = divide(firstOperand, secondOperand);
       break;
   }
-  if(!Number.isInteger(ans))return ans.toFixed(3)
+  if (!Number.isInteger(ans)) return ans.toFixed(3);
   return ans;
 }
 
@@ -76,9 +83,15 @@ operatorBtnList.forEach((operatorBtn) => {
 });
 
 equalBtn.addEventListener("click", () => {
-    if(!firstOperand&&!secondOperand&&!operator)return 0
+  if (!firstOperand && !secondOperand && !operator) return 0;
   if (!secondOperand) {
     secondOperand = Number(displayResult.textContent);
   }
   displayResult.textContent = operate(operator, firstOperand, secondOperand);
 });
+
+
+clearBtn.addEventListener("click",()=>{
+    displayResult.textContent = 0
+    clearEverything()
+})
