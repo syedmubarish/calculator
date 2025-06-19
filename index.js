@@ -55,7 +55,10 @@ function operate(operator, firstOperand, secondOperand) {
       ans = divide(firstOperand, secondOperand);
       break;
   }
-  if (!Number.isInteger(ans)) return ans.toFixed(3);
+  if(ans=="Error"){
+    return "Not divisible"
+  }
+  else if (!Number.isInteger(ans)) return ans.toFixed(3);
   return ans;
 }
 
