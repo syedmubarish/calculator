@@ -1,8 +1,13 @@
 const displayResult = document.querySelector(".display-result");
 
 const numberBtnList = document.querySelectorAll(".number");
+const operatorBtnList = document.querySelectorAll(".operator")
 
-let firstOperand, secondOperand, operator;
+let firstOperand = "", secondOperand="", operator=null;
+
+let displayContent
+
+
 
 function add(num1, num2) {
   return num1 + num2;
@@ -47,5 +52,22 @@ numberBtnList.forEach((numberBtn) => {
     } else {
       displayResult.textContent += e.target.textContent;
     }
-  });
+
 });
+});
+
+
+operatorBtnList.forEach((operatorBtn) => {
+    operatorBtn.addEventListener("click",(e)=>{
+        if(!operator){
+            firstOperand = Number(displayResult.textContent)
+        }else{
+
+            secondOperand = Number(displayResult.textContent)
+        }
+            
+        operator = e.target.textContent
+        displayResult.textContent = ""
+
+    })
+})
