@@ -4,11 +4,13 @@ const numberBtnList = document.querySelectorAll(".number");
 const operatorBtnList = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal-btn");
 const clearBtn = document.querySelector(".clear-btn")
+const dotBtn = document.querySelector(".dot-operator")
 
 let firstOperand = "",
   secondOperand = "",
   operator = null;
   isEvaluatedNow = false
+  isDecimalPresent =false
 
 let displayContent;
 
@@ -16,6 +18,7 @@ function clearEverything() {
   firstOperand = "";
   secondOperand = "";
   operator = null;
+  isDecimalPresent =false
 }
 
 function add(num1, num2) {
@@ -102,4 +105,20 @@ clearBtn.addEventListener("click",()=>{
     displayResult.textContent = 0
     clearEverything()
     isEvaluatedNow=false
+})
+
+dotBtn.addEventListener("click",()=>{
+    if(isEvaluatedNow){
+        displayResult.textContent = 0
+        isEvaluatedNow = false
+    }
+    if(displayResult.textContent.includes(".")){
+
+        isDecimalPresent =true
+    }
+    if(!isDecimalPresent){
+        displayResult.textContent+="."
+    }
+    console.log(displayResult.textContent);
+    
 })
