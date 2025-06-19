@@ -76,6 +76,7 @@ operatorBtnList.forEach((operatorBtn) => {
 });
 
 equalBtn.addEventListener("click", () => {
+    if(!firstOperand&&!secondOperand&&!operator)return 0
   if (!secondOperand) {
     secondOperand = Number(displayResult.textContent);
   }
