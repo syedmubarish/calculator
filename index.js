@@ -2,6 +2,7 @@ const displayResult = document.querySelector(".display-result");
 
 const numberBtnList = document.querySelectorAll(".number");
 const operatorBtnList = document.querySelectorAll(".operator");
+const equalBtn = document.querySelector(".equal-btn");
 
 let firstOperand = "",
   secondOperand = "",
@@ -66,4 +67,11 @@ operatorBtnList.forEach((operatorBtn) => {
     operator = e.target.textContent;
     displayResult.textContent = "";
   });
+});
+
+equalBtn.addEventListener("click", () => {
+  if (!secondOperand) {
+    secondOperand = Number(displayResult.textContent);
+  }
+  displayResult.textContent = operate(operator, firstOperand, secondOperand);
 });
