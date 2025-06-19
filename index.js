@@ -120,7 +120,7 @@ dotBtn.addEventListener("click",()=>{
     if(!isDecimalPresent){
         displayResult.textContent+="."
     }
-    console.log(displayResult.textContent);
+    
     
 })
 
@@ -131,6 +131,6 @@ delBtn.addEventListener("click",()=>{
     }else{
         displayResult.textContent = displayResult.textContent.slice(0,-1)
     }
-    console.log(displayResult.textContent);
+    
     
 })
