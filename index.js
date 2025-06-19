@@ -5,6 +5,7 @@ const operatorBtnList = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal-btn");
 const clearBtn = document.querySelector(".clear-btn")
 const dotBtn = document.querySelector(".dot-operator")
+const delBtn = document.querySelector(".del-btn") 
 
 let firstOperand = "",
   secondOperand = "",
@@ -118,6 +119,17 @@ dotBtn.addEventListener("click",()=>{
     }
     if(!isDecimalPresent){
         displayResult.textContent+="."
+    }
+    console.log(displayResult.textContent);
+    
+})
+
+delBtn.addEventListener("click",()=>{
+    if(isEvaluatedNow){
+        displayResult.textContent = 0
+        isEvaluatedNow = false
+    }else{
+        displayResult.textContent = displayResult.textContent.slice(0,-1)
     }
     console.log(displayResult.textContent);
     
