@@ -20,7 +20,15 @@ body{
     padding: 10px;
     border-radius: 10px;
     width: 400px;
-    
+    box-shadow: 8px 8px 15px #333;
+    gap: 5px;
+    background-color: rgba(247, 247, 228, 0.364);
+}
+
+.calculator-title{
+    font-style: italic;
+    color: #333;
+    user-select: none;
 }
 
 .display{
@@ -41,14 +49,14 @@ body{
 .first-row{
     display: flex;
     justify-content: flex-end;
-    gap: 2px;
+    gap: 14px;
     margin: 2px 0;
 }
 
 .second-row,.third-row,.fourth-row,.fifth-row{
     display: flex;
     justify-content: flex-end;
-    gap: 2px;
+    gap: 14px;
     margin:2px 0;
 }
 
@@ -60,6 +68,13 @@ body{
     cursor: pointer;
     padding: 5px;
     font-size: 18px;
+    filter: drop-shadow(2px 2px 2px);
+}
+
+button:hover{
+    background-color: orange;
+    font-style: italic;
+    
 }
 
 .clear-btn{
